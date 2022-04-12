@@ -2,12 +2,16 @@
   "name": "@inventivetalent/time",
   "version": "1.0.1",
   "description": "Simple time utility",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "clean": "rm -rf dist",
     "test": "mocha -r ts-node/register test/**.ts",
-    "compile": "tsc",
+    "compile": "tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json",
     "build": "npm run clean && npm run compile"
   },
   "author": "Haylee Schäfer",
